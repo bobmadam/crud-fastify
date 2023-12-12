@@ -1,0 +1,28 @@
+{
+  "name": "crud-fastify",
+  "version": "1.0.0",
+  "description": "Example CRUD Fastify using PostgreSQL and Redis",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Bob Maulana Adam",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/postgres": "^5.2.2",
+    "@fastify/redis": "^6.1.1",
+    "fastify": "^4.24.3",
+    "fastify-plugin": "^4.5.1",
+    "pg": "^8.11.3",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.1.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "http-errors": "^2.0.0",
+    "prettier": "^2.0.5"
+  }
+}
