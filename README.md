@@ -39,5 +39,13 @@ If you need to update `npm`, you can make it using `npm`! Cool right? After runn
     $ npm install npm -g
 
 ## Running the project
+- #### Check the credential
+  Make sure the credentials for connecting to the PostgreSQL and Redis databases have been adjusted for your machine. Check and update them in the configs/local.json file.
+  
+- #### Run the file sql
+  Run/execute table.sql in your local database
+  
+- #### Start
 
-    $ npm start
+      $ sudo apt install nodejs
+      $ sudo apt install npm
