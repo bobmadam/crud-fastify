@@ -73,8 +73,15 @@ fastify.listen({ port: process.env.PORT || 3000, host: '0.0.0.0' }, (err) => {
 
 // Gracefully close the server on process termination
 fastify.after(() => {
-  fastify.gracefulShutdown((signal, next) => {
-    fastify.log.info('Server closed gracefully')
-    next()
+  // Register graceful shutdown handler
+  fastify.gracefulShutdown(async (signal, next) => {
+    try {
+      fastify.log.info('Server closed gracefully')
+      next()
+    } catch (err) {
+      // Handle the case where an error occurs during the shutdown process
+      fastify.log.error('Error during graceful shutdown:', err.message)
+      next(err)
+    }
   })
 })
