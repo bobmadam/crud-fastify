@@ -11,6 +11,7 @@ const httpResp = require('./helper/httpResp')
 
 // Declare a Config
 fastify.register(require('./configs/config'))
+fastify.register(require('fastify-graceful-shutdown'))
 
 // Declare a Database
 fastify.register(require('./database/postgresql'))
@@ -71,13 +72,9 @@ fastify.listen({ port: process.env.PORT || 3000, host: '0.0.0.0' }, (err) => {
 })
 
 // Gracefully close the server on process termination
-process.on('SIGTERM', async () => {
-  try {
-    await fastify.close()
+fastify.after(() => {
+  fastify.gracefulShutdown((signal, next) => {
     fastify.log.info('Server closed gracefully')
-    process.exit(0)
-  } catch (err) {
-    fastify.log.error(err)
-    process.exit(1)
-  }
+    next()
+  })
 })

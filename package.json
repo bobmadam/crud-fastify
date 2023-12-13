@@ -12,6 +12,7 @@
     "@fastify/postgres": "^5.2.2",
     "@fastify/redis": "^6.1.1",
     "fastify": "^4.24.3",
+    "fastify-graceful-shutdown": "^3.5.1",
     "fastify-plugin": "^4.5.1",
     "pg": "^8.11.3",
     "uuid": "^9.0.1"
